@@ -53,7 +53,7 @@ sum(cast(V.new_vaccinations as bigint))
 over (partition by D.continent, D.location order by D.date) as totalVaccinated
 from covidDeath as D join covidVaccination as V
 on D.continent = V.continent and D.location = V.location and D.date = V.date
-where D.location = 'Mexico'
+--where D.location = 'Mexico'
 )
 SELECT *, (totalVaccinated/population)*100 AS VacinatedPercentage
 FROM PopVsVac
